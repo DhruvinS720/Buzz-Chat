@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel="icon" href="/images/buzzchat_logo.svg" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- CSS Files -->
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  <!-- Javascript Files -->
+  <script defer src="/socket.io/socket.io.js"></script>
+  <script defer src="/javascripts/index.js"></script>
+</head>
+
+<body>
+  <section>
+    <div class="container">
+      <div class="title">
+        <img src="/images/buzzchat_logo.svg" class="logo" alt="">
+        <h1>Welcome To <%= title %>
+        </h1>
+      </div>
+      <div class="message_area">
+        <!-- <div class="message-center"> <span class="joined"> Dhruvin joined the chat</span></div> -->
+        <!-- <div class="message-right">
+          <h2 class="user">Dhruvin</h2>
+          <p class="message">You joined the chat</p>
+        </div>
+        <div class="message-left">
+          <h2 class="user">Yug</h2>
+          <p class="message">Yug joined the chat</p>
+        </div> -->
+      </div>
+
+      <form action="#">
+        <div class="send_message">
+          <textarea name="write_message" id="write_message" cols="30" rows="1"
+            placeholder="Write your message..."></textarea>
+          <button type="submit" class="send_btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</body>
+
+</html>
