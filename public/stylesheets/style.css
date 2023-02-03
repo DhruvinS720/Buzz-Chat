@@ -30,28 +30,16 @@ h1 {
   font-size: 30px;
 }
 
-.message-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.message-center .joined {
-  font-size: 12px;
-  font-weight: 500;
-  background-color: #1c9dea;
-  color: #fff;
-  padding: 2px 10px;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
 .message_area {
   background-color: #eff7fe;
   height: 77.5vh;
   overflow-y: auto;
   scroll-behavior: smooth;
   background-blend-mode: overlay;
+}
+
+.message_area div:first-child {
+  padding-top: 5px;
 }
 
 .message_area::-webkit-scrollbar {
@@ -65,6 +53,22 @@ h1 {
 
 .message_area::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px #eff1f2;
+}
+
+.message-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message-center .joined {
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #1c9dea;
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 5px;
+  margin: 5px 0;
 }
 
 .message-left {
@@ -146,11 +150,10 @@ h1 {
   background-color: #fff;
   transition: all .5s;
   padding: 10px 5px 10px 5px;
-  z-index: 9;
-  bottom: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 0.5px solid rgba(28, 157, 234, 0.5);
 }
 
 .send_btn {
