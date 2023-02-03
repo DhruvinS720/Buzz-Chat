@@ -1,4 +1,6 @@
 const socket = io();
+const joinedAudio = new Audio("/audio/messenger_chat_sound.mp3");
+const incomingAudio = new Audio("/audio/message-incoming.mp3");
 var userName;
 
 const send_form = document.querySelector("#send_form");
@@ -22,7 +24,6 @@ send_form.addEventListener("submit", (e) => {
 });
 
 const append = (data, position) => {
-  console.log("halu");
   const div = document.createElement("div");
   div.classList.add(position);
   console.log(div);
@@ -37,6 +38,9 @@ const append = (data, position) => {
   div.appendChild(h2);
   div.appendChild(p);
   message_area.appendChild(div);
+  if (position == "message-left") {
+    incomingAudio.play();
+  }
   scrollbottom();
 };
 
@@ -48,21 +52,29 @@ const appendJoined = (message, position) => {
   joined.innerText = message;
   message_center.appendChild(joined);
   message_area.appendChild(message_center);
+  joinedAudio.play();
   scrollbottom();
 };
 
-appendJoined("You joined the chat", "message-center");
+// When user is joined the chat
+appendJoined("You joined the chat", "message-center", () => {
+  joinedAudio.play();
+});
 
+// Create even for server side when user is joined the chat
 socket.emit("new-user-joined", userName);
 
+// When other user joined the chat
 socket.on("user-joined", (userName) => {
   appendJoined(`${userName} joined the chat`, "message-center");
 });
 
+// When user receive message from other users
 socket.on("receive", (data) => {
   append(data, "message-left");
 });
 
+// When user exit from chat
 socket.on("leave", (userName) => {
   if (userName != null) {
     appendJoined(`${userName} left the chat`, "message-center");
