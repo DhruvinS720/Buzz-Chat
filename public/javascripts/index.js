@@ -31,7 +31,6 @@ const append = (data, position) => {
   h2.innerText = data.userName;
   const p = document.createElement("p");
   p.classList.add("message");
-
   p.innerText = data.message.trim();
   div.appendChild(h2);
   div.appendChild(p);
@@ -55,9 +54,7 @@ const appendJoined = (message, position) => {
 };
 
 // When user is joined the chat
-appendJoined("You joined the chat", "message-center", () => {
-  joinedAudio.play();
-});
+appendJoined("You joined the chat", "message-center");
 
 // Create even for server side when user is joined the chat
 socket.emit("new-user-joined", userName);
