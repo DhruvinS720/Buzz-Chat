@@ -105,8 +105,9 @@ h1 {
   color: #223645;
   font-size: 14px;
   line-height: 1.4;
-  font-weight: 600;
+  font-weight: 500;
   padding: 16px 20px;
+  text-align: start;
 }
 
 .message-left .message {

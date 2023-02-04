@@ -26,15 +26,13 @@ send_form.addEventListener("submit", (e) => {
 const append = (data, position) => {
   const div = document.createElement("div");
   div.classList.add(position);
-  console.log(div);
   const h2 = document.createElement("h2");
   h2.classList.add("user");
   h2.innerText = data.userName;
-  console.log(h2);
   const p = document.createElement("p");
   p.classList.add("message");
-  p.innerText = data.message;
-  console.log(p);
+
+  p.innerText = data.message.trim();
   div.appendChild(h2);
   div.appendChild(p);
   message_area.appendChild(div);
