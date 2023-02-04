@@ -15,14 +15,6 @@ const scrollbottom = () => {
   message_area.scrollTop = message_area.scrollHeight;
 };
 
-send_form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const user_message = { message: write_message.value, userName: "You" };
-  append(user_message, "message-right");
-  socket.emit("send", write_message.value);
-  write_message.value = "";
-});
-
 const append = (data, position) => {
   const div = document.createElement("div");
   div.classList.add(position);
@@ -62,6 +54,14 @@ socket.emit("new-user-joined", userName);
 // When other user joined the chat
 socket.on("user-joined", (userName) => {
   appendJoined(`${userName} joined the chat`, "message-center");
+});
+
+send_form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const user_message = { message: write_message.value, userName: "You" };
+  socket.emit("send", write_message.value);
+  append(user_message, "message-right");
+  write_message.value = "";
 });
 
 // When user receive message from other users
