@@ -11,6 +11,8 @@ do {
   userName = prompt("Enter Your Name:");
 } while (!userName);
 
+userName = userName[0].toLocaleUpperCase() + userName.slice(1);
+
 const scrollbottom = () => {
   message_area.scrollTop = message_area.scrollHeight;
 };
