@@ -32,6 +32,7 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("user-joined", userName);
   });
 
+  // When send event is called recieve event is created for all users
   socket.on("send", (message) => {
     socket.broadcast.emit("receive", {
       message: message,

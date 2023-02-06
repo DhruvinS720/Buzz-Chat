@@ -16,21 +16,23 @@ const scrollbottom = () => {
 };
 
 const append = (data, position) => {
-  const div = document.createElement("div");
-  div.classList.add(position);
-  const h2 = document.createElement("h2");
-  h2.classList.add("user");
-  h2.innerText = data.userName;
-  const p = document.createElement("p");
-  p.classList.add("message");
-  p.innerText = data.message.trim();
-  div.appendChild(h2);
-  div.appendChild(p);
-  message_area.appendChild(div);
-  if (position == "message-left") {
-    incomingAudio.play();
+  if (data.userName !== undefined) {
+    const div = document.createElement("div");
+    div.classList.add(position);
+    const h2 = document.createElement("h2");
+    h2.classList.add("user");
+    h2.innerText = data.userName;
+    const p = document.createElement("p");
+    p.classList.add("message");
+    p.innerText = data.message.trim();
+    div.appendChild(h2);
+    div.appendChild(p);
+    message_area.appendChild(div);
+    if (position == "message-left") {
+      incomingAudio.play();
+    }
+    scrollbottom();
   }
-  scrollbottom();
 };
 
 const appendJoined = (message, position) => {
